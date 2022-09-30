@@ -39,5 +39,49 @@ namespace ConsultarSelosPA
 
             wBrowser.Dispose();
         }
+
+        private void buttSeleciona_MouseClick(object sender, MouseEventArgs e)
+        {
+            openFileDialog.Multiselect = false;
+            openFileDialog.Title = "Selecionar xlsx";
+
+            openFileDialog.InitialDirectory = @"";
+
+            openFileDialog.Filter = "(*.csv)|*.csv";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            DialogResult dr = this.openFileDialog.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                tBCaminho.Text += openFileDialog.FileName;
+            }
+        }
+
+
+        private void habilitarbuttLimpar2(bool valor)
+        {
+            buttLimpar2.Enabled = valor;
+        }
+
+        private void tBCaminho_TextChanged(object sender, System.EventArgs e)
+        {
+            if(tBCaminho.Text != "")
+            {
+                habilitarbuttLimpar2(true);
+            }
+            else
+            {
+                habilitarbuttLimpar2(false);
+            }
+        }
+
+        private void buttIniciar_MouseClick(object sender, MouseEventArgs e)
+        {
+            tablePanel.Controls.Clear();
+            tablePanel.Controls.Add(new Label() { Text = "Selos não enviados" }, 0, 0);
+            tablePanel.Controls.Add(new Label() { Text = "Tipo" }, 1, 0);
+        }
     }
 }
