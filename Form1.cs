@@ -1,4 +1,5 @@
 ﻿using ConsultarSelosPA.Modelo;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -9,7 +10,7 @@ namespace ConsultarSelosPA
         public Selo selo { get; set; }
         public Resultado resul = new Resultado();
         BuscarSelo buscar = new BuscarSelo();
-        public TipoSelo tipo { get; set; }
+        public TipoSelo tipo = new TipoSelo();
         public FormPrincipal()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace ConsultarSelosPA
         private void buttSeleciona_MouseClick(object sender, MouseEventArgs e)
         {
             openFileDialog.Multiselect = false;
-            openFileDialog.Title = "Selecionar xlsx";
+            openFileDialog.Title = "Selecionar csv";
 
             openFileDialog.InitialDirectory = @"";
 
@@ -77,11 +78,29 @@ namespace ConsultarSelosPA
             }
         }
 
-        private void buttIniciar_MouseClick(object sender, MouseEventArgs e)
+        private async void buttIniciar_MouseClick(object sender, MouseEventArgs e)
         {
-            tablePanel.Controls.Clear();
-            tablePanel.Controls.Add(new Label() { Text = "Selos não enviados" }, 0, 0);
-            tablePanel.Controls.Add(new Label() { Text = "Tipo" }, 1, 0);
+            listView.Clear();
+
+            Arquivo arquivo = new Arquivo();
+            List<Selo> selos = arquivo.selo(tBCaminho.Text);
+            var A = 0;
+            var B = 0;
+
+            foreach (Selo selo in selos)
+            {
+               await buscar.VerificarSelos(selo, resul);
+
+                if (!resul.enviado)
+                {
+                    listView.Columns.Add(selo.NumeroSelo, tipo.DescricaoTipoSelo(int.Parse(selo.Tipo)));
+                }
+                else
+                {
+                    listViewEnvi.Items.Add(selo.NumeroSelo,A);
+                    A++;
+                }
+            }
         }
     }
 }

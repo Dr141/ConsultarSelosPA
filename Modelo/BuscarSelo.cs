@@ -29,7 +29,7 @@ namespace ConsultarSelosPA.Modelo
             catch (HttpRequestException e)
             {
                 MessageBox.Show(e.Message,
-                        "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 resul = new Resultado(false, "");
             }
         }

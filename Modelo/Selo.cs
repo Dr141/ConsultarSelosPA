@@ -20,5 +20,7 @@ namespace ConsultarSelosPA.Modelo
             this.SerieSelo       = serie;
             this.NumeroSelo      = selo;
         }
+
+        public Selo() {}
     }
 }

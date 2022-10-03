@@ -45,16 +45,20 @@ namespace ConsultarSelosPA
             this.cBSerie = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tBCaminho = new System.Windows.Forms.TextBox();
-            this.buttSeleciona = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pBar = new System.Windows.Forms.ProgressBar();
-            this.buttLimpar2 = new System.Windows.Forms.Button();
-            this.buttIniciar = new System.Windows.Forms.Button();
             this.buttExportar = new System.Windows.Forms.Button();
+            this.buttIniciar = new System.Windows.Forms.Button();
+            this.buttLimpar2 = new System.Windows.Forms.Button();
+            this.pBar = new System.Windows.Forms.ProgressBar();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttSeleciona = new System.Windows.Forms.Button();
+            this.tBCaminho = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.tablePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.listView = new System.Windows.Forms.ListView();
+            this.NumeroSelo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TipoSelo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewEnvi = new System.Windows.Forms.ListView();
+            this.NumeroSeloE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -267,59 +271,15 @@ namespace ConsultarSelosPA
             this.tabPage2.Text = "Consultar Arquivo";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // buttExportar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(167, 21);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Caminho do arquivo:";
-            // 
-            // tBCaminho
-            // 
-            this.tBCaminho.Location = new System.Drawing.Point(6, 37);
-            this.tBCaminho.Name = "tBCaminho";
-            this.tBCaminho.Size = new System.Drawing.Size(500, 29);
-            this.tBCaminho.TabIndex = 1;
-            this.tBCaminho.TextChanged += new System.EventHandler(this.tBCaminho_TextChanged);
-            // 
-            // buttSeleciona
-            // 
-            this.buttSeleciona.Location = new System.Drawing.Point(512, 33);
-            this.buttSeleciona.Name = "buttSeleciona";
-            this.buttSeleciona.Size = new System.Drawing.Size(115, 34);
-            this.buttSeleciona.TabIndex = 2;
-            this.buttSeleciona.Text = "Seleciona";
-            this.buttSeleciona.UseVisualStyleBackColor = true;
-            this.buttSeleciona.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttSeleciona_MouseClick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tablePanel);
-            this.groupBox2.Location = new System.Drawing.Point(7, 126);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(620, 277);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Resultado";
-            // 
-            // pBar
-            // 
-            this.pBar.Location = new System.Drawing.Point(7, 425);
-            this.pBar.Name = "pBar";
-            this.pBar.Size = new System.Drawing.Size(620, 23);
-            this.pBar.TabIndex = 0;
-            // 
-            // buttLimpar2
-            // 
-            this.buttLimpar2.Enabled = false;
-            this.buttLimpar2.Location = new System.Drawing.Point(512, 86);
-            this.buttLimpar2.Name = "buttLimpar2";
-            this.buttLimpar2.Size = new System.Drawing.Size(115, 34);
-            this.buttLimpar2.TabIndex = 4;
-            this.buttLimpar2.Text = "Limpar";
-            this.buttLimpar2.UseVisualStyleBackColor = true;
+            this.buttExportar.Enabled = false;
+            this.buttExportar.Location = new System.Drawing.Point(7, 86);
+            this.buttExportar.Name = "buttExportar";
+            this.buttExportar.Size = new System.Drawing.Size(115, 34);
+            this.buttExportar.TabIndex = 6;
+            this.buttExportar.Text = "Exportar";
+            this.buttExportar.UseVisualStyleBackColor = true;
             // 
             // buttIniciar
             // 
@@ -331,28 +291,95 @@ namespace ConsultarSelosPA
             this.buttIniciar.UseVisualStyleBackColor = true;
             this.buttIniciar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttIniciar_MouseClick);
             // 
-            // buttExportar
+            // buttLimpar2
             // 
-            this.buttExportar.Enabled = false;
-            this.buttExportar.Location = new System.Drawing.Point(7, 86);
-            this.buttExportar.Name = "buttExportar";
-            this.buttExportar.Size = new System.Drawing.Size(115, 34);
-            this.buttExportar.TabIndex = 6;
-            this.buttExportar.Text = "Exportar";
-            this.buttExportar.UseVisualStyleBackColor = true;
+            this.buttLimpar2.Enabled = false;
+            this.buttLimpar2.Location = new System.Drawing.Point(512, 86);
+            this.buttLimpar2.Name = "buttLimpar2";
+            this.buttLimpar2.Size = new System.Drawing.Size(115, 34);
+            this.buttLimpar2.TabIndex = 4;
+            this.buttLimpar2.Text = "Limpar";
+            this.buttLimpar2.UseVisualStyleBackColor = true;
             // 
-            // tablePanel
+            // pBar
             // 
-            this.tablePanel.ColumnCount = 1;
-            this.tablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePanel.Location = new System.Drawing.Point(6, 28);
-            this.tablePanel.Name = "tablePanel";
-            this.tablePanel.RowCount = 1;
-            this.tablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablePanel.Size = new System.Drawing.Size(608, 243);
-            this.tablePanel.TabIndex = 0;
+            this.pBar.Location = new System.Drawing.Point(7, 425);
+            this.pBar.Name = "pBar";
+            this.pBar.Size = new System.Drawing.Size(620, 23);
+            this.pBar.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.listViewEnvi);
+            this.groupBox2.Controls.Add(this.listView);
+            this.groupBox2.Location = new System.Drawing.Point(7, 126);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(620, 277);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Resultado";
+            // 
+            // buttSeleciona
+            // 
+            this.buttSeleciona.Location = new System.Drawing.Point(512, 33);
+            this.buttSeleciona.Name = "buttSeleciona";
+            this.buttSeleciona.Size = new System.Drawing.Size(115, 34);
+            this.buttSeleciona.TabIndex = 2;
+            this.buttSeleciona.Text = "Seleciona";
+            this.buttSeleciona.UseVisualStyleBackColor = true;
+            this.buttSeleciona.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttSeleciona_MouseClick);
+            // 
+            // tBCaminho
+            // 
+            this.tBCaminho.Location = new System.Drawing.Point(6, 37);
+            this.tBCaminho.Name = "tBCaminho";
+            this.tBCaminho.Size = new System.Drawing.Size(500, 29);
+            this.tBCaminho.TabIndex = 1;
+            this.tBCaminho.TextChanged += new System.EventHandler(this.tBCaminho_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(167, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Caminho do arquivo:";
+            // 
+            // listView
+            // 
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.NumeroSelo,
+            this.TipoSelo});
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(6, 28);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(417, 265);
+            this.listView.TabIndex = 0;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            // 
+            // NumeroSelo
+            // 
+            this.NumeroSelo.Text = "Número Selo";
+            // 
+            // TipoSelo
+            // 
+            this.TipoSelo.Text = "Tipo Selo";
+            // 
+            // listViewEnvi
+            // 
+            this.listViewEnvi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.NumeroSeloE});
+            this.listViewEnvi.HideSelection = false;
+            this.listViewEnvi.Location = new System.Drawing.Point(429, 28);
+            this.listViewEnvi.Name = "listViewEnvi";
+            this.listViewEnvi.Size = new System.Drawing.Size(185, 265);
+            this.listViewEnvi.TabIndex = 1;
+            this.listViewEnvi.UseCompatibleStateImageBehavior = false;
+            // 
+            // NumeroSeloE
+            // 
+            this.NumeroSeloE.Text = "Selo enviado";
             // 
             // FormPrincipal
             // 
@@ -404,7 +431,11 @@ namespace ConsultarSelosPA
         private System.Windows.Forms.Button buttLimpar2;
         private System.Windows.Forms.ProgressBar pBar;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.TableLayoutPanel tablePanel;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ColumnHeader NumeroSelo;
+        private System.Windows.Forms.ColumnHeader TipoSelo;
+        private System.Windows.Forms.ListView listViewEnvi;
+        private System.Windows.Forms.ColumnHeader NumeroSeloE;
     }
 }
 

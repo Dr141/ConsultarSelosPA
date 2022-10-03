@@ -58,6 +58,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Arquivo.cs" />
     <Compile Include="Modelo\BuscarSelo.cs" />
     <Compile Include="Modelo\Resultado.cs" />
     <Compile Include="Modelo\Selo.cs" />
