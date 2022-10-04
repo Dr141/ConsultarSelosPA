@@ -54,16 +54,18 @@ namespace ConsultarSelosPA
             this.tBCaminho = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.listView = new System.Windows.Forms.ListView();
-            this.NumeroSelo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TipoSelo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listViewEnvi = new System.Windows.Forms.ListView();
-            this.NumeroSeloE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridViewR = new System.Windows.Forms.DataGridView();
+            this.NumeroSelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewEnviado = new System.Windows.Forms.DataGridView();
+            this.Enviado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnviado)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -280,9 +282,11 @@ namespace ConsultarSelosPA
             this.buttExportar.TabIndex = 6;
             this.buttExportar.Text = "Exportar";
             this.buttExportar.UseVisualStyleBackColor = true;
+            this.buttExportar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttExportar_MouseClick);
             // 
             // buttIniciar
             // 
+            this.buttIniciar.Enabled = false;
             this.buttIniciar.Location = new System.Drawing.Point(391, 86);
             this.buttIniciar.Name = "buttIniciar";
             this.buttIniciar.Size = new System.Drawing.Size(115, 34);
@@ -300,6 +304,7 @@ namespace ConsultarSelosPA
             this.buttLimpar2.TabIndex = 4;
             this.buttLimpar2.Text = "Limpar";
             this.buttLimpar2.UseVisualStyleBackColor = true;
+            this.buttLimpar2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttLimpar2_MouseClick);
             // 
             // pBar
             // 
@@ -310,8 +315,8 @@ namespace ConsultarSelosPA
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listViewEnvi);
-            this.groupBox2.Controls.Add(this.listView);
+            this.groupBox2.Controls.Add(this.dataGridViewEnviado);
+            this.groupBox2.Controls.Add(this.dataGridViewR);
             this.groupBox2.Location = new System.Drawing.Point(7, 126);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(620, 277);
@@ -346,40 +351,47 @@ namespace ConsultarSelosPA
             this.label5.TabIndex = 0;
             this.label5.Text = "Caminho do arquivo:";
             // 
-            // listView
+            // dataGridViewR
             // 
-            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.dataGridViewR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.dataGridViewR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewR.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroSelo,
-            this.TipoSelo});
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(6, 28);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(417, 265);
-            this.listView.TabIndex = 0;
-            this.listView.UseCompatibleStateImageBehavior = false;
+            this.TipoD});
+            this.dataGridViewR.Location = new System.Drawing.Point(6, 28);
+            this.dataGridViewR.Name = "dataGridViewR";
+            this.dataGridViewR.Size = new System.Drawing.Size(418, 243);
+            this.dataGridViewR.TabIndex = 0;
             // 
             // NumeroSelo
             // 
-            this.NumeroSelo.Text = "Número Selo";
+            this.NumeroSelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NumeroSelo.HeaderText = "Não enviado";
+            this.NumeroSelo.Name = "NumeroSelo";
             // 
-            // TipoSelo
+            // TipoD
             // 
-            this.TipoSelo.Text = "Tipo Selo";
+            this.TipoD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TipoD.HeaderText = "Descrição";
+            this.TipoD.Name = "TipoD";
             // 
-            // listViewEnvi
+            // dataGridViewEnviado
             // 
-            this.listViewEnvi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.NumeroSeloE});
-            this.listViewEnvi.HideSelection = false;
-            this.listViewEnvi.Location = new System.Drawing.Point(429, 28);
-            this.listViewEnvi.Name = "listViewEnvi";
-            this.listViewEnvi.Size = new System.Drawing.Size(185, 265);
-            this.listViewEnvi.TabIndex = 1;
-            this.listViewEnvi.UseCompatibleStateImageBehavior = false;
+            this.dataGridViewEnviado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewEnviado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dataGridViewEnviado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEnviado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Enviado});
+            this.dataGridViewEnviado.Location = new System.Drawing.Point(430, 28);
+            this.dataGridViewEnviado.Name = "dataGridViewEnviado";
+            this.dataGridViewEnviado.Size = new System.Drawing.Size(190, 243);
+            this.dataGridViewEnviado.TabIndex = 1;
             // 
-            // NumeroSeloE
+            // Enviado
             // 
-            this.NumeroSeloE.Text = "Selo enviado";
+            this.Enviado.HeaderText = "Selo enviado";
+            this.Enviado.Name = "Enviado";
             // 
             // FormPrincipal
             // 
@@ -401,6 +413,8 @@ namespace ConsultarSelosPA
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnviado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,11 +445,11 @@ namespace ConsultarSelosPA
         private System.Windows.Forms.Button buttLimpar2;
         private System.Windows.Forms.ProgressBar pBar;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.ColumnHeader NumeroSelo;
-        private System.Windows.Forms.ColumnHeader TipoSelo;
-        private System.Windows.Forms.ListView listViewEnvi;
-        private System.Windows.Forms.ColumnHeader NumeroSeloE;
+        private System.Windows.Forms.DataGridView dataGridViewR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroSelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoD;
+        private System.Windows.Forms.DataGridView dataGridViewEnviado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Enviado;
     }
 }
 

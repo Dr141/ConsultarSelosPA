@@ -53,15 +53,25 @@ namespace ConsultarSelosPA.Modelo
                     {
                         if (y == "A" || y == "B" || y == "C" || y == "D")
                             selo.SerieSelo = y;
-                        if (y.Length == 3)
+                        if (y.Length == 3 && !(y.StartsWith("T") || y.StartsWith("t")))
                             selo.Tipo = y;
-                        if (y.Length > 20)
+                        if (y.Length > 20 && !(y.StartsWith("C") || y.StartsWith("c")))
                             selo.CodigoSeguranca = y;
-                        if (y.Length > 3 && y.Length < 20)
+                        if (y.Length > 3 && y.Length < 20 && !(y.StartsWith("N") || y.StartsWith("n") || y.StartsWith("C") || y.StartsWith("c")
+                            || y.StartsWith("T") || y.StartsWith("t") || y.StartsWith("S") || y.StartsWith("s")))
                             selo.NumeroSelo = y;
                     }
 
-                    seloList.Add(selo);
+                    if (selo.Vazio()) 
+                    {
+                        seloList.Add(new Selo()
+                        {
+                            SerieSelo = selo.SerieSelo,
+                            Tipo = selo.Tipo,
+                            CodigoSeguranca = selo.CodigoSeguranca,
+                            NumeroSelo = selo.NumeroSelo
+                        });
+                    }                    
                 }
 
                 file.Close();
