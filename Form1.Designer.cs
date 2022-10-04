@@ -34,6 +34,8 @@ namespace ConsultarSelosPA
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttBuscar = new System.Windows.Forms.Button();
             this.buttLimpar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.wBrowser = new System.Windows.Forms.WebBrowser();
             this.tBNumeroS = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tBSeguraca = new System.Windows.Forms.TextBox();
@@ -43,11 +45,27 @@ namespace ConsultarSelosPA
             this.cBSerie = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.wBrowser = new System.Windows.Forms.WebBrowser();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttExportar = new System.Windows.Forms.Button();
+            this.buttIniciar = new System.Windows.Forms.Button();
+            this.buttLimpar2 = new System.Windows.Forms.Button();
+            this.pBar = new System.Windows.Forms.ProgressBar();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttSeleciona = new System.Windows.Forms.Button();
+            this.tBCaminho = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewR = new System.Windows.Forms.DataGridView();
+            this.NumeroSelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewEnviado = new System.Windows.Forms.DataGridView();
+            this.Enviado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnviado)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -106,6 +124,28 @@ namespace ConsultarSelosPA
             this.buttLimpar.Text = "Limpar";
             this.buttLimpar.UseVisualStyleBackColor = true;
             this.buttLimpar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttLimpar_MouseClick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.wBrowser);
+            this.groupBox1.Location = new System.Drawing.Point(6, 220);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(617, 230);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Resultado";
+            // 
+            // wBrowser
+            // 
+            this.wBrowser.Location = new System.Drawing.Point(6, 28);
+            this.wBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wBrowser.Name = "wBrowser";
+            this.wBrowser.ScriptErrorsSuppressed = true;
+            this.wBrowser.Size = new System.Drawing.Size(605, 196);
+            this.wBrowser.TabIndex = 0;
             // 
             // tBNumeroS
             // 
@@ -217,35 +257,141 @@ namespace ConsultarSelosPA
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttExportar);
+            this.tabPage2.Controls.Add(this.buttIniciar);
+            this.tabPage2.Controls.Add(this.buttLimpar2);
+            this.tabPage2.Controls.Add(this.pBar);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.buttSeleciona);
+            this.tabPage2.Controls.Add(this.tBCaminho);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(633, 411);
+            this.tabPage2.Size = new System.Drawing.Size(633, 456);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consultar Arquivo";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // wBrowser
+            // buttExportar
             // 
-            this.wBrowser.Location = new System.Drawing.Point(6, 28);
-            this.wBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wBrowser.Name = "wBrowser";
-            this.wBrowser.ScriptErrorsSuppressed = true;
-            this.wBrowser.Size = new System.Drawing.Size(605, 196);
-            this.wBrowser.TabIndex = 0;
+            this.buttExportar.Enabled = false;
+            this.buttExportar.Location = new System.Drawing.Point(7, 86);
+            this.buttExportar.Name = "buttExportar";
+            this.buttExportar.Size = new System.Drawing.Size(115, 34);
+            this.buttExportar.TabIndex = 6;
+            this.buttExportar.Text = "Exportar";
+            this.buttExportar.UseVisualStyleBackColor = true;
+            this.buttExportar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttExportar_MouseClick);
             // 
-            // groupBox1
+            // buttIniciar
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.wBrowser);
-            this.groupBox1.Location = new System.Drawing.Point(6, 220);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(617, 230);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Resultado";
+            this.buttIniciar.Enabled = false;
+            this.buttIniciar.Location = new System.Drawing.Point(391, 86);
+            this.buttIniciar.Name = "buttIniciar";
+            this.buttIniciar.Size = new System.Drawing.Size(115, 34);
+            this.buttIniciar.TabIndex = 5;
+            this.buttIniciar.Text = "Iniciar";
+            this.buttIniciar.UseVisualStyleBackColor = true;
+            this.buttIniciar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttIniciar_MouseClick);
+            // 
+            // buttLimpar2
+            // 
+            this.buttLimpar2.Enabled = false;
+            this.buttLimpar2.Location = new System.Drawing.Point(512, 86);
+            this.buttLimpar2.Name = "buttLimpar2";
+            this.buttLimpar2.Size = new System.Drawing.Size(115, 34);
+            this.buttLimpar2.TabIndex = 4;
+            this.buttLimpar2.Text = "Limpar";
+            this.buttLimpar2.UseVisualStyleBackColor = true;
+            this.buttLimpar2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttLimpar2_MouseClick);
+            // 
+            // pBar
+            // 
+            this.pBar.Location = new System.Drawing.Point(7, 425);
+            this.pBar.Name = "pBar";
+            this.pBar.Size = new System.Drawing.Size(620, 23);
+            this.pBar.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridViewEnviado);
+            this.groupBox2.Controls.Add(this.dataGridViewR);
+            this.groupBox2.Location = new System.Drawing.Point(7, 126);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(620, 277);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Resultado";
+            // 
+            // buttSeleciona
+            // 
+            this.buttSeleciona.Location = new System.Drawing.Point(512, 33);
+            this.buttSeleciona.Name = "buttSeleciona";
+            this.buttSeleciona.Size = new System.Drawing.Size(115, 34);
+            this.buttSeleciona.TabIndex = 2;
+            this.buttSeleciona.Text = "Seleciona";
+            this.buttSeleciona.UseVisualStyleBackColor = true;
+            this.buttSeleciona.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttSeleciona_MouseClick);
+            // 
+            // tBCaminho
+            // 
+            this.tBCaminho.Location = new System.Drawing.Point(6, 37);
+            this.tBCaminho.Name = "tBCaminho";
+            this.tBCaminho.Size = new System.Drawing.Size(500, 29);
+            this.tBCaminho.TabIndex = 1;
+            this.tBCaminho.TextChanged += new System.EventHandler(this.tBCaminho_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(167, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Caminho do arquivo:";
+            // 
+            // dataGridViewR
+            // 
+            this.dataGridViewR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.dataGridViewR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewR.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NumeroSelo,
+            this.TipoD});
+            this.dataGridViewR.Location = new System.Drawing.Point(6, 28);
+            this.dataGridViewR.Name = "dataGridViewR";
+            this.dataGridViewR.Size = new System.Drawing.Size(418, 243);
+            this.dataGridViewR.TabIndex = 0;
+            // 
+            // NumeroSelo
+            // 
+            this.NumeroSelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NumeroSelo.HeaderText = "Não enviado";
+            this.NumeroSelo.Name = "NumeroSelo";
+            // 
+            // TipoD
+            // 
+            this.TipoD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TipoD.HeaderText = "Descrição";
+            this.TipoD.Name = "TipoD";
+            // 
+            // dataGridViewEnviado
+            // 
+            this.dataGridViewEnviado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewEnviado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dataGridViewEnviado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEnviado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Enviado});
+            this.dataGridViewEnviado.Location = new System.Drawing.Point(430, 28);
+            this.dataGridViewEnviado.Name = "dataGridViewEnviado";
+            this.dataGridViewEnviado.Size = new System.Drawing.Size(190, 243);
+            this.dataGridViewEnviado.TabIndex = 1;
+            // 
+            // Enviado
+            // 
+            this.Enviado.HeaderText = "Selo enviado";
+            this.Enviado.Name = "Enviado";
             // 
             // FormPrincipal
             // 
@@ -264,6 +410,11 @@ namespace ConsultarSelosPA
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnviado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,6 +436,20 @@ namespace ConsultarSelosPA
         private System.Windows.Forms.Button buttLimpar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.WebBrowser wBrowser;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button buttSeleciona;
+        private System.Windows.Forms.TextBox tBCaminho;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttExportar;
+        private System.Windows.Forms.Button buttIniciar;
+        private System.Windows.Forms.Button buttLimpar2;
+        private System.Windows.Forms.ProgressBar pBar;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.DataGridView dataGridViewR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroSelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoD;
+        private System.Windows.Forms.DataGridView dataGridViewEnviado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Enviado;
     }
 }
 

@@ -20,5 +20,23 @@ namespace ConsultarSelosPA.Modelo
             this.SerieSelo       = serie;
             this.NumeroSelo      = selo;
         }
+
+        public Selo() {}
+
+        public bool Vazio()
+        {
+            if(SerieSelo       != null &&
+               Tipo            != null &&
+               NumeroSelo      != null &&
+               CodigoSeguranca != null
+              ) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

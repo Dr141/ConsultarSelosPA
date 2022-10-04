@@ -12,7 +12,6 @@ namespace ConsultarSelosPA.Modelo
 {
    public class BuscarSelo
    {
-
         static readonly HttpClient client = new HttpClient();
 
         public static async Task BuscarSeloTJ(Selo selo, Resultado resul)
@@ -26,12 +25,11 @@ namespace ConsultarSelosPA.Modelo
                 string responseBody = await response.Content.ReadAsStringAsync();
 
                 resul.enviado = responseBody.Contains("data:image;base64");
-                resul.qrcode  = Qrcode(responseBody);
             }
             catch (HttpRequestException e)
             {
                 MessageBox.Show(e.Message,
-                        "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 resul = new Resultado(false, "");
             }
         }
