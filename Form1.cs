@@ -95,7 +95,7 @@ namespace ConsultarSelosPA
                 if (!resul.enviado)
                 {
                     dataGridViewR.Rows.Add(selo.NumeroSelo, tipo.DescricaoTipoSelo(int.Parse(selo.Tipo)));
-                    NaoEnviado.Add(selo.NumeroSelo + ","+ tipo.DescricaoTipoSelo(int.Parse(selo.Tipo)));
+                    NaoEnviado.Add(selo.NumeroSelo + ";"+ tipo.DescricaoTipoSelo(int.Parse(selo.Tipo)));
                 }
                 else
                 {
