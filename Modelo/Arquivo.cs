@@ -49,17 +49,35 @@ namespace ConsultarSelosPA.Modelo
 
                 while ((Linha = sr.ReadLine()) != null)
                 {
-                    foreach (string y in Linha.Split(','))
+                    if (Linha.Contains(","))
                     {
-                        if (y == "A" || y == "B" || y == "C" || y == "D")
-                            selo.SerieSelo = y;
-                        if (y.Length == 3 && !(y.StartsWith("T") || y.StartsWith("t")))
-                            selo.Tipo = y;
-                        if (y.Length > 20 && !(y.StartsWith("C") || y.StartsWith("c")))
-                            selo.CodigoSeguranca = y;
-                        if (y.Length > 3 && y.Length < 20 && !(y.StartsWith("N") || y.StartsWith("n") || y.StartsWith("C") || y.StartsWith("c")
-                            || y.StartsWith("T") || y.StartsWith("t") || y.StartsWith("S") || y.StartsWith("s")))
-                            selo.NumeroSelo = y;
+                        foreach (string y in Linha.Split(','))
+                        {
+                            if (y == "A" || y == "B" || y == "C" || y == "D")
+                                selo.SerieSelo = y;
+                            if (y.Length == 3 && !(y.StartsWith("T") || y.StartsWith("t")))
+                                selo.Tipo = y;
+                            if (y.Length > 20 && !(y.StartsWith("C") || y.StartsWith("c")))
+                                selo.CodigoSeguranca = y;
+                            if (y.Length > 3 && y.Length < 20 && !(y.StartsWith("N") || y.StartsWith("n") || y.StartsWith("C") || y.StartsWith("c")
+                                || y.StartsWith("T") || y.StartsWith("t") || y.StartsWith("S") || y.StartsWith("s")))
+                                selo.NumeroSelo = y;
+                        }
+                    }
+                    else if (Linha.Contains(";"))
+                    {
+                        foreach (string y in Linha.Split(';'))
+                        {
+                            if (y == "A" || y == "B" || y == "C" || y == "D")
+                                selo.SerieSelo = y;
+                            if (y.Length == 3 && !(y.StartsWith("T") || y.StartsWith("t")))
+                                selo.Tipo = y;
+                            if (y.Length > 20 && !(y.StartsWith("C") || y.StartsWith("c")))
+                                selo.CodigoSeguranca = y;
+                            if (y.Length > 3 && y.Length < 20 && !(y.StartsWith("N") || y.StartsWith("n") || y.StartsWith("C") || y.StartsWith("c")
+                                || y.StartsWith("T") || y.StartsWith("t") || y.StartsWith("S") || y.StartsWith("s")))
+                                selo.NumeroSelo = y;
+                        }
                     }
 
                     if (selo.Vazio()) 
