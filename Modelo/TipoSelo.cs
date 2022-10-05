@@ -13,31 +13,31 @@ namespace ConsultarSelosPA.Modelo
             switch (codigo)
             {
                 case 101:
-                    return " SELO DIGITAL GERAL";
+                    return "SELO DIGITAL GERAL";
                 case 102:
-                    return " SELO DIGITAL GRATUITO";
+                    return "SELO DIGITAL GRATUITO";
                 case 104:
-                    return " SELO DIGITAL RECONHECIMENTO";
+                    return "SELO DIGITAL RECONHECIMENTO";
                 case 105:
-                    return " SELO DIGITAL AUTENTICAÇÃO";
+                    return "SELO DIGITAL AUTENTICAÇÃO";
                 case 106:
-                    return " SELO DIGITAL CERTIDÃO";
+                    return "SELO DIGITAL CERTIDÃO";
                 case 107:
-                    return " SELO DIGITAL PROCURAÇÃO PÚBLICA";
+                    return "SELO DIGITAL PROCURAÇÃO PÚBLICA";
                 case 108:
-                    return " SELO DIGITAL ESCRITURA PÚBLICA";
+                    return "SELO DIGITAL ESCRITURA PÚBLICA";
                 case 109:
-                    return " SELO DIGITAL CERTIDÃO DE NASCIMENTO 1ª VIA";
+                    return "SELO DIGITAL CERTIDÃO DE NASCIMENTO 1ª VIA";
                 case 110:
-                    return " SELO DIGITAL CERTIDÃO DE ÓBITO 1ª VIA";
+                    return "SELO DIGITAL CERTIDÃO DE ÓBITO 1ª VIA";
                 case 111:
-                    return " SELO DIGITAL CERTIDÃO DE NASCIMENTO 2ª VIA";
+                    return "SELO DIGITAL CERTIDÃO DE NASCIMENTO 2ª VIA";
                 case 112:
-                    return " SELO DIGITAL CERTIDÃO DE ÓBITO 2ª VIA";
+                    return "SELO DIGITAL CERTIDÃO DE ÓBITO 2ª VIA";
                 case 113:
-                    return " SELO DIGITAL DE POSTECIPAÇÃO";
+                    return "SELO DIGITAL DE POSTECIPAÇÃO";
                 default:
-                    return " SELO DIGITAL NÃO ENCONTRADO";
+                    return "SELO DIGITAL NÃO ENCONTRADO";
             }
         }
 
